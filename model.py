@@ -66,8 +66,8 @@ class SRCNN(object):
         self.saver = tf.train.Saver()
 
     def train(self, config):
-        if config.is_train:
-            input_setup(self.sess, config)
+        # if config.is_train:
+        #     input_setup(self.sess, config)
         # else:
         #     nx, ny = input_setup(self.sess, config)
 
@@ -92,7 +92,8 @@ class SRCNN(object):
 
         if config.is_train:
             print("Training...")
-            train_data, train_label = read_data(data_dir)
+            train_data, train_label = input_setup(self.sess, config)
+
 
             for ep in xrange(config.epoch):
                 # Run by batch images

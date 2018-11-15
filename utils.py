@@ -222,11 +222,13 @@ def input_setup(sess, config):
     arrlabel = np.asarray(sub_label_sequence)  # [?, 21, 21, 1]
 
     if config.is_train:
-        make_data(sess, arrdata, arrlabel)
+        # make_data(sess, arrdata, arrlabel)
+        print("Set up input succesfully!")
+        return arrdata, arrlabel
     if not config.is_train:
         arrlabel = np.zeros((1, 16, 16, 1))
-        make_data(sess, arrdata, arrlabel)
-        return nx, ny
+        # make_data(sess, arrdata, arrlabel)
+        return nx, ny, arrdata, arrlabel
 
 
 def imsave(image, path):
